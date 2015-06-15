@@ -23,7 +23,12 @@ public abstract class AbstractPiece implements Pieces {
 
 	@Override
 	public boolean move(int xFinal, int yFinal) {
-		return Coord.coordonnees_valides(xFinal, yFinal);
+		if(Coord.coordonnees_valides(xFinal, yFinal)) {
+			coord.x = xFinal;
+			coord.y = yFinal;
+			return true;
+		}
+		return false;		
 	}
 	
 	@Override

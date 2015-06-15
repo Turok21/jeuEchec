@@ -8,7 +8,7 @@ public class Fou extends AbstractPiece {
 
 	@Override
 	public boolean isMoveOk(int xFinal, int yFinal) {
-		if(Math.abs(xFinal - yFinal) == Math.abs(getX() - getY())) {
+		if(Math.abs(xFinal - getX()) == Math.abs(yFinal - getY())) {
 			return true;
 		}
 		return false;
