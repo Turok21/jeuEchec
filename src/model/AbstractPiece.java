@@ -23,7 +23,7 @@ public abstract class AbstractPiece implements Pieces {
 
 	@Override
 	public boolean move(int xFinal, int yFinal) {
-		return coord.coordonnees_valides(xFinal, yFinal);
+		return Coord.coordonnees_valides(xFinal, yFinal);
 	}
 	
 	@Override
@@ -42,5 +42,11 @@ public abstract class AbstractPiece implements Pieces {
 	@Override
 	public Couleur getCouleur() {
 		return couleur;
+	}
+
+	@Override
+	public String toString() {
+		return "AbstractPiece [couleur=" + couleur + ", coord=" + coord
+				+ ", name=" + name + "]";
 	}
 }
