@@ -1,9 +1,8 @@
-package controler.controlerLocal;
+package controler;
 
 
 import model.Coord;
 import model.observable.ChessGame;
-import controler.AbstractChessGameControler;
 
 
 /**
@@ -24,4 +23,8 @@ public class ChessGameControler extends AbstractChessGameControler {
 	public boolean move(Coord initCoord, Coord finalCoord) {
 		return chessGame.move(initCoord.x, initCoord.y, finalCoord.x, finalCoord.y);		
 	}
+	
+
+	
+
 }

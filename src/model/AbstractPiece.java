@@ -36,7 +36,9 @@ public abstract class AbstractPiece implements Pieces {
 
 	@Override
 	public boolean capture() {
-		return false;
+		coord.x = -1;
+		coord.y = -1;
+		return true;
 	}
 
 	@Override
@@ -53,5 +55,8 @@ public abstract class AbstractPiece implements Pieces {
 	public String toString() {
 		return "AbstractPiece [couleur=" + couleur + ", coord=" + coord
 				+ ", name=" + name + "]";
+	}
+	public static void main (String [] args){
+		System.out.println("piece");
 	}
 }
