@@ -2,15 +2,15 @@ package model;
 
 public class Tour extends AbstractPiece {
 
-	public Tour(String name, Couleur couleur, Coord coord) {
-		super(name, couleur, coord);
-	}
+    public Tour(String name, Couleur couleur, Coord coord) {
+        super(name, couleur, coord);
+    }
 
-	@Override
-	public boolean isMoveOk(int xFinal, int yFinal) {
-		if(xFinal == getX() || yFinal == getY()) {
-			return true;
-		}
-		return false;
-	}
+    @Override
+    public boolean isMoveOk(int xFinal, int yFinal) {
+        if (xFinal == getX() || yFinal == getY()) {
+            return true;
+        }
+        return false;
+    }
 }

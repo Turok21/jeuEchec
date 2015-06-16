@@ -23,7 +23,7 @@ public class Echiquier {
 	}
 
 	private void setMessage(String newMess) {
-		this.message = newMess + "\n Joueur courant -> " + this.getColorCurrentPlayer();
+		this.message = "Joueur " + this.getColorCurrentPlayer() +" <==> "+ newMess;
 	}
 
 	public boolean isEchec() {
@@ -35,33 +35,33 @@ public class Echiquier {
 	}
 
 	public boolean move(int xInit, int yInit, int xFinal, int yFinal) {
-	    if (tabJeu[courant].isPieceHere(xInit, yInit)) {
-	        if ((Coord.coordonnees_valides(xFinal, yFinal)) && !(xInit == xFinal && yInit == yFinal)) {
-	            if (tabJeu[courant].isMoveOk(xInit, yInit, xFinal, yFinal)) {
-	                // todo rajouter condition piece intermédiaire
-	                if (!(tabJeu[courant].isPieceHere(xFinal, yFinal))) { // si par dessus une de notre piece
-	                    if (tabJeu[(courant + 1) % 2].isPieceHere(xFinal, yFinal)) {
-	                        tabJeu[(courant + 1) % 2].capture(xFinal, yFinal);
-	                        this.setMessage("Le joueur courant mange une peice adverse");
-	                    }
-	                    tabJeu[courant].Move(xInit, yInit, xFinal, yFinal);
-	                    // this.switchJoueur(); // effectue dans observable controler
-	                    this.setMessage("Déplacement effectué correctement.");
-	                    return true;
-	                } else {
-	                    this.setMessage("Le joueur courant a déja une piece à cet endroit");
-	                }
-	            } else {
-	                this.setMessage("Cette piece ne peux pas bouger de cette facon");
-	            }
-	        } else {
-	            this.setMessage("Coordonnées incorrect ou inchangées");
-	        }
-	    } else {
-	        this.setMessage("Le joueur courant n'as pas de piece à cet endroit");
-	    }
-	    //System.out.println("Déplacement impossible");
-	    return false;
+		if (tabJeu[courant].isPieceHere(xInit, yInit)) {
+			if ((Coord.coordonnees_valides(xFinal, yFinal)) && !(xInit == xFinal && yInit == yFinal)) {
+				if (tabJeu[courant].isMoveOk(xInit, yInit, xFinal, yFinal)) {
+					// todo rajouter condition piece intermédiaire
+					if (!(tabJeu[courant].isPieceHere(xFinal, yFinal))) { // si par dessus une de notre piece
+						if (tabJeu[(courant + 1) % 2].isPieceHere(xFinal, yFinal)) {
+							tabJeu[(courant + 1) % 2].capture(xFinal, yFinal);
+							this.setMessage("OK : Le joueur courant mange une piece adverse");
+						}
+						tabJeu[courant].Move(xInit, yInit, xFinal, yFinal);
+						// this.switchJoueur(); // effectue dans observable controler
+						this.setMessage("OK : Déplacement effectué correctement.");
+						return true;
+					} else {
+						this.setMessage("KO : Le joueur courant a déja une piece à cet endroit");
+					}
+				} else {
+					this.setMessage("KO : Cette piece ne peux pas bouger de cette facon");
+				}
+			} else {
+				this.setMessage("KO : Coordonnées incorrect ou inchangées");
+			}
+		} else {
+			this.setMessage("KO : Le joueur courant n'as pas de piece à cet endroit");
+		}
+		//System.out.println("Déplacement impossible");
+		return false;
 	}
 
 	public void switchJoueur() {
@@ -69,7 +69,6 @@ public class Echiquier {
 	}
 
 	public String toString() {
-		
 		String name, tab = "";
 		tab += "\t 0\t 1\t 2\t 3\t 4\t 5\t 6\t 7\n";
 		for (int row = 0; row <= 7; row++) {
@@ -91,14 +90,14 @@ public class Echiquier {
 		}
 		return tab;
 	}
-	
-	public static void main(String[] args) {
-        Echiquier e = new Echiquier();
 
-        e.move(0, 6, 0, 5);
-        System.out.println(e);
-        
-        e.move(3, 1, 3, 3);
-        System.out.println(e);
-    }
+	public static void main(String[] args) {
+		Echiquier e = new Echiquier();
+
+		e.move(0, 6, 0, 5);
+		System.out.println(e);
+
+		e.move(3, 1, 3, 3);
+		System.out.println(e);
+	}
 }

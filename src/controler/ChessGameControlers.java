@@ -5,12 +5,12 @@ import model.Couleur;
 
 public interface ChessGameControlers {
 
-	boolean move(Coord initCoord, Coord finalCoord);
+    boolean move(Coord initCoord, Coord finalCoord);
 
-	String getMessage();
-	
-	public boolean isEchecEtMat();
-	
-	public Couleur getColorCurrentPlayer();
+    String getMessage();
+
+    public boolean isEchecEtMat();
+
+    public Couleur getColorCurrentPlayer();
 
 }

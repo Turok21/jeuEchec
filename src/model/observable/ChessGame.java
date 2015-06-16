@@ -1,5 +1,6 @@
 package model.observable;
 import java.util.Observable;
+
 import model.Couleur;
 import model.Echiquier;
 /**
@@ -53,6 +54,7 @@ public class ChessGame extends Observable{
       }
       this.setChanged();
       this.notifyObservers(new Object[]{xInit, yInit, xFinal, yFinal, ret});
+		System.out.println(echiquier.getMessage()); // TODO ARIE
       return ret;    
    }
    public boolean isEchecEtMat(){
